@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpalaSupplyCollector", "ImpalaSupplyCollector\ImpalaSupplyCollector.csproj", "{6961F50F-D4A7-4C59-8BAC-830CC9646829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpalaSupplyCollector", "ImpalaSupplyCollector\ImpalaSupplyCollector.csproj", "{6961F50F-D4A7-4C59-8BAC-830CC9646829}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpalaSupplyCollectorTests", "ImpalaSupplyCollectorTests\ImpalaSupplyCollectorTests.csproj", "{B719C517-9625-457A-BD08-E6E22B89AF5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpalaSupplyCollectorTests", "ImpalaSupplyCollectorTests\ImpalaSupplyCollectorTests.csproj", "{B719C517-9625-457A-BD08-E6E22B89AF5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpalaSupplyCollectorLoader", "ImpalaSupplyCollectorLoader\ImpalaSupplyCollectorLoader.csproj", "{73A6CC82-4159-4ABC-8587-40841A9D196A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpalaSharp", "..\test\ImpalaSharp\ImpalaSharp\ImpalaSharp.csproj", "{7CA98A43-11EA-48BD-9CFE-75F807DAA86B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpalaSupplyCollectorLoader", "ImpalaSupplyCollectorLoader\ImpalaSupplyCollectorLoader.csproj", "{73A6CC82-4159-4ABC-8587-40841A9D196A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{73A6CC82-4159-4ABC-8587-40841A9D196A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73A6CC82-4159-4ABC-8587-40841A9D196A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73A6CC82-4159-4ABC-8587-40841A9D196A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7CA98A43-11EA-48BD-9CFE-75F807DAA86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CA98A43-11EA-48BD-9CFE-75F807DAA86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CA98A43-11EA-48BD-9CFE-75F807DAA86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7CA98A43-11EA-48BD-9CFE-75F807DAA86B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

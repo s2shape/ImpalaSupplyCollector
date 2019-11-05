@@ -136,6 +136,7 @@ namespace ImpalaSupplyCollectorTests
             Assert.Contains("Wednesday", samples);
         }
 
+        /*
         [Fact]
         public void GetDataCollectionMetricsTest()
         {
@@ -159,7 +160,7 @@ namespace ImpalaSupplyCollectorTests
                 Assert.Equal(metric.RowCount, resultMetric.RowCount);
                 Assert.Equal(metric.TotalSpaceKB, resultMetric.TotalSpaceKB, 1);
             }
-        }
+        }*/
 
 
     }

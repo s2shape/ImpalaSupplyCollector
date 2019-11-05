@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ImpalaSharp.Core" Version="1.0.0" />
     <PackageReference Include="S2.SupplyCollector" Version="1.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\test\ImpalaSharp\ImpalaSharp\ImpalaSharp.csproj" />
   </ItemGroup>
 
 </Project>

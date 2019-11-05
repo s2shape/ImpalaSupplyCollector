@@ -55,49 +55,60 @@ namespace ImpalaSupplyCollector
 
                 foreach (var metric in metrics)
                 {
-                    conn.Query($"compute stats {metric.Name}");
+                    try {
+                        conn.Execute($"compute stats default.{metric.Name}");
+                    } catch(Exception) { /* ignore */}
+
                     result = conn.Query($"show table stats {metric.Name}");
 
                     metric.RowCount = 0;
                     metric.TotalSpaceKB = 0;
-                    metric.UsedSpaceKB = 0;
 
-                    if (result.Result.Count > 0) {
-                        var row = result.Result[0];
-
-                        foreach (var rowKey in row.Keys) {
-                            if ("#Rows".Equals(rowKey)) {
-                                metric.RowCount = Int64.Parse(row[rowKey]);
-                            } else if ("Size".Equals(rowKey)) {
+                    foreach (var row in result.Result)
+                    {
+                        foreach (var rowKey in row.Keys)
+                        {
+                            if ("#Rows".Equals(rowKey))
+                            {
+                                metric.RowCount += Int64.Parse(row[rowKey]);
+                            }
+                            else if ("Size".Equals(rowKey))
+                            {
                                 var sizeStr = row[rowKey];
-                                if (sizeStr.EndsWith("TB")) {
-                                    metric.TotalSpaceKB =
+                                if (sizeStr.EndsWith("TB"))
+                                {
+                                    metric.TotalSpaceKB +=
                                         Int64.Parse(sizeStr.Substring(0, sizeStr.Length - 2)) * 1024 * 1024 * 1024;
                                 }
-                                else if (sizeStr.EndsWith("GB")) {
-                                    metric.TotalSpaceKB =
+                                else if (sizeStr.EndsWith("GB"))
+                                {
+                                    metric.TotalSpaceKB +=
                                         Int64.Parse(sizeStr.Substring(0, sizeStr.Length - 2)) * 1024 * 1024;
                                 }
-                                else if (sizeStr.EndsWith("MB")) {
-                                    metric.TotalSpaceKB =
+                                else if (sizeStr.EndsWith("MB"))
+                                {
+                                    metric.TotalSpaceKB +=
                                         Int64.Parse(sizeStr.Substring(0, sizeStr.Length - 2)) * 1024;
                                 }
-                                else if (sizeStr.EndsWith("KB")) {
-                                    metric.TotalSpaceKB =
+                                else if (sizeStr.EndsWith("KB"))
+                                {
+                                    metric.TotalSpaceKB +=
                                         Int64.Parse(sizeStr.Substring(0, sizeStr.Length - 2));
                                 }
-                                else if (sizeStr.EndsWith("B")) {
-                                    metric.TotalSpaceKB =
+                                else if (sizeStr.EndsWith("B"))
+                                {
+                                    metric.TotalSpaceKB +=
                                         Int64.Parse(sizeStr.Substring(0, sizeStr.Length - 1)) / 1024;
                                 }
-                                else {
-                                    metric.TotalSpaceKB = Int64.Parse(sizeStr);
+                                else
+                                {
+                                    metric.TotalSpaceKB += Int64.Parse(sizeStr);
                                 }
-
-                                metric.UsedSpaceKB = metric.TotalSpaceKB;
                             }
                         }
                     }
+
+                    metric.UsedSpaceKB = metric.TotalSpaceKB;
                 }
             }
 
