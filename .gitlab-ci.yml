@@ -6,7 +6,7 @@ stages:
 
 variables:
   IMPALA_HOST: impala
-  IMPALA_PORT: "8080"
+  IMPALA_PORT: "21000"
   COMPlus_DebugWriteToStdErr: "1"
 
 before_script:
